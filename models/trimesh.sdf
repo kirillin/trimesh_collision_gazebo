@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+    <model name="trimesh">
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <link name="trimesh_link">
+            <inertial>
+                <pose>0 0 0 0 0 0</pose>
+                <mass>1</mass>
+                <inertia>
+                    <ixx>0.026041666666666668</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.008541666666666668</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.02416666666666667</izz>
+                </inertia>
+            </inertial>
+            <collision name="collision">
+                <max_contacts>16</max_contacts>
+                <pose>0 0 0 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://trimesh_collision_gazebo/meshes/trimesh.stl</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+                <surface>
+                    <friction>
+                        <ode>
+                            <mu>10</mu>
+                            <mu2>10</mu2>
+                        </ode>
+                    </friction>
+                    <contact>
+                        <ode>
+                            <kp>1e15</kp>
+                            <kd>1e13</kd>
+                            <max_vel>0.01</max_vel>
+                            <min_depth>0.0</min_depth>
+                        </ode>
+                        <bullet>
+                            <soft_cfm>0.0</soft_cfm>
+                            <soft_erp>0.2</soft_erp>
+                            <split_impulse>1</split_impulse>
+                            <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                        </bullet>
+                    </contact>
+                </surface>
+            </collision>
+            <visual name="visual">
+                <pose>0 0 0 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://trimesh_collision_gazebo/meshes/trimesh.stl</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+                <material>
+                    <script>Gazebo/DarkGreen</script>
+                </material>
+            </visual>
+        </link>
+    </model>
+</sdf>

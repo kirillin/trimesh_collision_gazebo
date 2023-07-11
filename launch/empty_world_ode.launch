@@ -1,0 +1,18 @@
+<launch>
+
+	<env
+		name="GAZEBO_RESOURCE_PATH"
+		value="$GAZEBO_RESOURCE_PATH:$(find trimesh_collision_gazebo)/meshes"
+	/>
+
+  <param name="model_sdf_path" type="string" value="$(find trimesh_collision_gazebo)/models/trimesh.sdf" />
+
+  <arg name="phisics" default="ode" />
+  <arg name="world_name" default="$(find trimesh_collision_gazebo)/worlds/test_trimesh_ode.world" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" pass_all_args="true">
+    <arg name="paused" value="false" />
+    <arg name="physics" value="$(arg phisics)" /> 
+  </include>
+
+</launch>
